@@ -10,3 +10,15 @@ Thư viện:
 -iostream :nhập xuất chuẩn
 -fstream : tương tác tập tin
 -
+
+
+tham khảo:
+-locale : lấy thời gian
+-fcntl.h : quản lí tệp
+-<io.h> : quản lí tệp
+-<codecvt>: chuyển đổi UTF(đọc tệp UNICODE)
+- <windows.h> : thập cẩm chức năng 
+-<conio.h>: điều khiển console và nhập xuất không đợi (non-blocking I/O) {gotoXY:
+-<sstream>: làm việc chuỗi
+-<ctime>: như tên
+- <stdio.h> nhập xuất chuẩn
