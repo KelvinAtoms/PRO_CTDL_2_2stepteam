@@ -1,0 +1,12 @@
+Lớp:
+-
+-
+-
+Hàm:
+-
+-
+-
+Thư viện:
+-iostream :nhập xuất chuẩn
+-fstream : tương tác tập tin
+-
