@@ -1,0 +1,101 @@
+#include <windows.h>
+#include <iostream>
+#include<iomanip>
+using namespace std;
+// Hàm gotoXY
+void gotoXY(int x, int y) {
+    COORD coord;
+    coord.X = x;
+    coord.Y = y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+int main() {
+    system("cls"); // Xóa màn hình
+    for (int j = 0; j < 12; j++)
+    for (int i = 1; i < 11; i++)if (i == 1)cout << j; else cout << " ";
+    cout << endl;
+    cout << setw(40);
+    for (int i = 0; i <= 20; i++)if (i != 20)cout << "*" << " "; else cout << "*\n";
+    cout<< setw(40) << "*" <<setw(27)<< "DANG NHAP ADMIN" << setw(14) << "*\n";
+    cout << setw(40);
+    for (int i = 0; i <= 20; i++)if (i != 20)cout << "*" << " "; else cout << "*\n";
+    return 0;
+}
+#include <iostream>
+#include <windows.h>
+#include <conio.h> // ?? dùng _getch()
+
+using namespace std;
+
+// Hàm di chuy?n con tr?
+void gotoxy(int x, int y) {
+    COORD coord;
+    coord.X = x;
+    coord.Y = y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+
+// Hàm ?? hi?n th? giao di?n và x? lý nh?p li?u
+void loginScreen() {
+    string user = "";
+    string pass = "";
+    int currentField = 0; // 0 = USER, 1 = PASS
+
+    while (true) {
+        // Hi?n th? giao di?n
+        system("cls");
+        gotoxy(0, 0);
+        cout << "USER: " << (currentField == 0 ? " " : user);
+        gotoxy(0, 1);
+        cout << "PASS: " << (currentField == 1 ? " " : string(pass.size(), '*'));
+
+        // Nh?n phím
+        int key = _getch();
+
+        // ?i?u h??ng con tr?
+        if (key == 224) { // Nh?n phím ?i?u h??ng
+            int arrowKey = _getch();
+            if (arrowKey == 72) { // UP
+                currentField = (currentField == 0) ? 1 : 0;
+            }
+            else if (arrowKey == 80) { // DOWN
+                currentField = (currentField == 1) ? 0 : 1;
+            }
+        }
+        else if (key == 13) { // ENTER
+            if (!user.empty() && !pass.empty()) {
+                break; // Thoát khi nh?p ??y ?? USER và PASS
+            }
+        }
+        else if (key == 8) { // BACKSPACE
+            if (currentField == 0 && !user.empty()) {
+                user.pop_back();
+            }
+            else if (currentField == 1 && !pass.empty()) {
+                pass.pop_back();
+            }
+        }
+        else { // Các ký t? khác
+            if (currentField == 0) {
+                user += key;
+            }
+            else if (currentField == 1) {
+                pass += key;
+            }
+        }
+    }
+
+    // Hi?n th? thông tin sau khi nh?p xong
+    system("cls");
+    cout << "USER: " << user << endl;
+    cout << "PASS: " << pass << endl;
+}
+
+int main() {
+    loginScreen();
+    return 0;
+}
+
+
+
+
