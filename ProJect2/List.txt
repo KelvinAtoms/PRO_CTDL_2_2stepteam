@@ -1,0 +1,44 @@
+Lớp:
+-
+-
+-
+Hàm:
+-
+-
+-
+Thư viện:
+-iostream :nhập xuất chuẩn
+-fstream : tương tác tập tin
+-
+
+
+tham khảo:
+-locale : lấy thời gian
+-fcntl.h : quản lí tệp
+-<io.h> : quản lí tệp
+-<codecvt>: chuyển đổi UTF(đọc tệp UNICODE)
+- <windows.h> : thập cẩm chức năng 
+-<conio.h>: điều khiển console và nhập xuất không đợi (non-blocking I/O) {gotoXY:
+{
+thay bằng
+#include <windows.h>
+#include <iostream>
+
+// Hàm tự định nghĩa gotoXY
+void gotoXY(int x, int y) {
+    COORD coord;
+    coord.X = x;
+    coord.Y = y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+
+int main() {
+    system("cls"); // Xóa màn hình
+    gotoXY(10, 5); // Di chuyển con trỏ đến tọa độ (10, 5)
+    std::cout << "Hello at (10, 5)" << std::endl;
+    return 0;
+}
+}
+-<sstream>: làm việc chuỗi
+-<ctime>: như tên
+- <stdio.h> nhập xuất chuẩn

@@ -1,0 +1,16 @@
+
+ Get:lấy
+
+Set:truyền và ghi
+
+input: lấy từ màn hình
+
+take : lấy từ file
+
+show :in ra màn hình
+
+print : in ra file
+
+mẫu test: 
+Employee temp("Emiya","Magic123","Shirou Emiya","Fuyuki","0912justic","hero@123");
+

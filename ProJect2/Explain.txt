@@ -1,0 +1,47 @@
+Cấu trúc:đặt con trỏ
+
+struct _COORD{
+SHORT X,Y;
+}COORD;
+SHORT: kiểu dữ lieu nguyên ngắn
+X: Vị trí cột (tọa độ ngang, bắt đầu từ 0)
+Y: Vị trí dòng (tọa độ dọc, bắt đầu từ 0)
+*SetConsoleCursorPosition(): Di chuyển con trỏ đến một vị trí cụ thể trong console.
+*ReadConsoleOutput() và WriteConsoleOutput(): Làm việc với nội dung hiển thị trên console.
+
+# nội dung sau đè lên nội dung trước
+Dùng:
+
+void gotoXY(int x, int y) {
+    COORD coord;
+    coord.X = x;
+    coord.Y = y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+
+Cấu trúc: vẽ hình chữ nhật
+
+Dùng:
+
+void drawRectangle(int x, int y, int width, int height) {
+    COORD coord;
+    HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    for (int i = 0; i < height; i++) {
+        coord.X = x;
+        coord.Y = y + i;
+        SetConsoleCursorPosition(console, coord);
+
+        if (i == 0 || i == height - 1) {
+            for (int j = 0; j < width; j++) std::cout << "*";
+        }
+        else {
+            std::cout << "*";
+            for (int j = 0; j < width - 2; j++) std::cout << " ";
+            std::cout << "*";
+        }
+    }
+}
+
+Hàm xóa màn hình console: system("cls");
+Giải pháp thay thế Window Console API hoặc ANSI Escape Codes(Window 10+?)
