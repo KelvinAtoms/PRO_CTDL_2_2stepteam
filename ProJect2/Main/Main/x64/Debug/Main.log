@@ -1,3 +1,6 @@
-﻿  project2.cpp
+﻿  Main.cpp
+  mwindows.cpp
+  project2.cpp
 D:\HCMUE\Học phần\On going\CTDL\ProJect2\Main\Main\project2.cpp(17,32): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
   Main.vcxproj -> D:\HCMUE\Học phần\On going\CTDL\ProJect2\Main\x64\Debug\Main.exe
